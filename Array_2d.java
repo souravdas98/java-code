@@ -1,5 +1,6 @@
 import java.util.*;
 class Main{
+    int a[][];
     void Take_Input(){
        Scanner sc=new Scanner(System.in);
        System.out.println("enter the rows:"); 
@@ -9,7 +10,7 @@ class Main{
        
        System.out.println("Enter array elements : ");    
         
-       int a[][]=new int[rows][columns];
+       a=new int[rows][columns];
         
           
         for(int i=0; i<a.length;i++)
@@ -19,30 +20,25 @@ class Main{
                 a[i][j]=sc.nextInt();
             }
          }
-         Count_Odd_Even(a);
 
     }
-    void Count_Odd_Even(int a[][]){
-        int e=0;
-         int o=0;
+    void Search_Occurence(){
+      int c=0;
+      Scanner sc=new Scanner(System.in);
+      System.out.println("enter the element to be search:");
+      int x=sc.nextInt();
          for(int i = 0; i <a.length; i++){    
             for(int j = 0; j <a[0].length; j++){    
-              if(a[i][j] % 2 == 0) 
-              {
-                e++; 
-                System.out.println("Even numbers: " + a[i][j]); 
-              }
-
-              else   
-              { 
-                o++;
-                System.out.println("Odd numbers: " + a[i][j]); 
-              }   
+                if(a[i][j]==x)
+                c++;
             }    
+        } 
+        if(c==0){
+          System.out.println(x+" element is not found");
+        }
+        else{
+          System.out.println(x+" element is present in an array the Occurrences of the number is "+c);
         }    
-            
-        System.out.println("Frequency of odd numbers: " + o);    
-        System.out.println("Frequency of even numbers: " + e);    
     }        
     
 
@@ -51,5 +47,7 @@ class Array_2d{
     public static void main(String[]args){
         Main a=new Main();
         a.Take_Input();
+        a.Search_Occurence();
+
     }
 }
